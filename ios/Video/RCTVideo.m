@@ -273,8 +273,8 @@ static int const RCTVideoUnset = -1;
   
   [[NSNotificationCenter defaultCenter] postNotificationName:@"RCTVideo_progress" object:nil userInfo:@{@"progress": [NSNumber numberWithDouble: currentTimeSecs / duration]}];
   
-  if( currentTimeSecs >= 0 && self.onVideoProgress) {
-    self.onVideoProgress(@{
+  if( currentTimeSecs >= 0 && self.onVideoProgresss) {
+    self.onVideoProgresss(@{
                            @"currentTime": [NSNumber numberWithFloat:CMTimeGetSeconds(currentTime)],
                            @"playableDuration": [self calculatePlayableDuration],
                            @"atValue": [NSNumber numberWithLongLong:currentTime.value],
@@ -389,10 +389,10 @@ static int const RCTVideoUnset = -1;
       }
 
       //Perform on next run loop, otherwise onVideoLoadStart is nil
-      if (self.onVideoLoadStart) {
+      if (self.onVideoLoadStarts) {
         id uri = [source objectForKey:@"uri"];
         id type = [source objectForKey:@"type"];
-        self.onVideoLoadStart(@{@"src": @{
+        self.onVideoLoadStarts(@{@"src": @{
                                         @"uri": uri ? uri : [NSNull null],
                                         @"type": type ? type : [NSNull null],
                                         @"isNetwork": [NSNumber numberWithBool:(bool)[source objectForKey:@"isNetwork"]]},
@@ -678,8 +678,8 @@ static int const RCTVideoUnset = -1;
         
         [self attachListeners];
         [self applyModifiers];
-      } else if (_playerItem.status == AVPlayerItemStatusFailed && self.onVideoError) {
-        self.onVideoError(@{@"error": @{@"code": [NSNumber numberWithInteger: _playerItem.error.code],
+      } else if (_playerItem.status == AVPlayerItemStatusFailed && self.onVideoErrors) {
+        self.onVideoErrors(@{@"error": @{@"code": [NSNumber numberWithInteger: _playerItem.error.code],
                                         @"domain": _playerItem.error.domain},
                             @"target": self.reactTag});
       }
