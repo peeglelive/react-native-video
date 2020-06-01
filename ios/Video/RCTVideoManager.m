@@ -48,11 +48,11 @@ RCT_EXPORT_VIEW_PROPERTY(filterEnabled, BOOL);
 RCT_EXPORT_VIEW_PROPERTY(progressUpdateInterval, float);
 RCT_EXPORT_VIEW_PROPERTY(restoreUserInterfaceForPIPStopCompletionHandler, BOOL);
 /* Should support: onLoadStart, onLoad, and onError to stay consistent with Image */
-RCT_EXPORT_VIEW_PROPERTY(onVideoLoadStart, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onVideoLoadStarts, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onVideoLoad, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onVideoBuffer, RCTDirectEventBlock);
-RCT_EXPORT_VIEW_PROPERTY(onVideoError, RCTDirectEventBlock);
-RCT_EXPORT_VIEW_PROPERTY(onVideoProgress, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onVideoErrors, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onVideoProgresss, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onBandwidthUpdate, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onVideoSeek, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onVideoEnd, RCTDirectEventBlock);
